@@ -16,9 +16,9 @@ public struct Character: Codable, Identifiable, RawQueryable {
     public let gender: Gender
     public let origin: Location
     public let location: Location
-    public let image: URL
-    public let episode: [URL]
-    public let url: URL
+    public let image: String
+    public let episode: [String]
+    public let url: String
     
     public static let associatedURL: URL = .characters
     
@@ -37,7 +37,7 @@ public struct Character: Codable, Identifiable, RawQueryable {
     
     public struct Location: Codable, Sendable {
         let name: String
-        let url: URL
+        let url: String
     }
 }
 
@@ -46,8 +46,8 @@ public struct Location: Codable, Identifiable, RawQueryable {
     public let name: String
     public let type: String
     public let dimension: String
-    public let residents: [URL]
-    public let url: URL
+    public let residents: [String]
+    public let url: String
     
     public static let associatedURL: URL = .locations
 }
@@ -57,8 +57,8 @@ public struct Episode: Codable, Identifiable, RawQueryable {
     public let name: String
     public let airDate: Date
     public let episode: Int
-    public let characters: [URL]
-    public let url: URL
+    public let characters: [String]
+    public let url: String
     
     public static let associatedURL: URL = .episodes
     
@@ -71,8 +71,8 @@ public struct Episode: Codable, Identifiable, RawQueryable {
 public struct ResponseInfo: Codable, Sendable {
     public let count: Int
     public let pages: Int
-    public let next: URL?
-    public let prev: URL?
+    public let next: String?
+    public let prev: String?
 }
 
 public struct CharacterResponse: Queryable {
