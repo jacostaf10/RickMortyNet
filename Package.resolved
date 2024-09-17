@@ -1,0 +1,15 @@
+{
+  "originHash" : "b1f489a1bb4380bfd88b26fa0e77757b195e37444f33ddd57b4fe241661cd21f",
+  "pins" : [
+    {
+      "identity" : "swiftnet",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jacostaf10/SwiftNet.git",
+      "state" : {
+        "revision" : "efddace138110696fe85362cc0e157876d7a4f51",
+        "version" : "0.0.3"
+      }
+    }
+  ],
+  "version" : 3
+}
