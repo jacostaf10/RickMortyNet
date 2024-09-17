@@ -55,7 +55,7 @@ public struct Location: Codable, Identifiable, RawQueryable {
 public struct Episode: Codable, Identifiable, RawQueryable {
     public let id: Int
     public let name: String
-    public let airDate: Date
+    public let airDate: String
     public let episode: Int
     public let characters: [String]
     public let url: String
