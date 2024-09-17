@@ -19,7 +19,6 @@ public struct Character: Codable, Identifiable, RawQueryable {
     public let image: URL
     public let episode: [URL]
     public let url: URL
-    public let created: Date
     
     public static let associatedURL: URL = .characters
     
@@ -49,7 +48,6 @@ public struct Location: Codable, Identifiable, RawQueryable {
     public let dimension: String
     public let residents: [URL]
     public let url: URL
-    public let created: Date
     
     public static let associatedURL: URL = .locations
 }
@@ -61,13 +59,12 @@ public struct Episode: Codable, Identifiable, RawQueryable {
     public let episode: Int
     public let characters: [URL]
     public let url: URL
-    public let created: Date
     
     public static let associatedURL: URL = .episodes
     
     enum CodingKeys: String, CodingKey {
         case airDate = "air_date"
-        case id, name, episode, characters, url, created
+        case id, name, episode, characters, url
     }
 }
 

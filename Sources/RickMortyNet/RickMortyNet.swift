@@ -32,27 +32,27 @@ public final actor RMNetwork {
         try await getItems(Episode.self, indices)
     }
     
-    public func getCharacters() async throws -> [CharacterResponse] {
+    public func getCharacters() async throws -> CharacterResponse {
         try await getItems(CharacterResponse.self)
     }
     
-    public func getLocations() async throws -> [LocationResponse] {
+    public func getLocations() async throws -> LocationResponse {
         try await getItems(LocationResponse.self)
     }
     
-    public func getEpisodes() async throws -> [EpisodeResponse] {
+    public func getEpisodes() async throws -> EpisodeResponse {
         try await getItems(EpisodeResponse.self)
     }
     
-    public func getCharacters(with filters: [CharacterFilter]) async throws -> [CharacterResponse] {
+    public func getCharacters(with filters: [CharacterFilter]) async throws -> CharacterResponse {
         try await getItems(CharacterResponse.self, CharacterFilter.self, with: filters)
     }
     
-    public func getLocations(with filters: [LocationFilter]) async throws -> [LocationResponse] {
+    public func getLocations(with filters: [LocationFilter]) async throws -> LocationResponse {
         try await getItems(LocationResponse.self, LocationFilter.self, with: filters)
     }
     
-    public func getEpisodes(with filters: [EpisodeFilter]) async throws -> [EpisodeResponse] {
+    public func getEpisodes(with filters: [EpisodeFilter]) async throws -> EpisodeResponse {
         try await getItems(EpisodeResponse.self, EpisodeFilter.self, with: filters)
     }
     
@@ -66,11 +66,11 @@ public final actor RMNetwork {
         return try await get(type.associatedURL.appendingPathComponent(indices.map(\.description).joined(separator: ",")), of: [T].self, decoder: .iso8601())
     }
     
-    private func getItems<T: Queryable>(_ type: T.Type) async throws -> [T] {
-        try await get(type.associatedURL, of: [T].self, decoder: .iso8601())
+    private func getItems<T: Queryable>(_ type: T.Type) async throws -> T {
+        try await get(type.associatedURL, of: T.self, decoder: .iso8601())
     }
     
-    private func getItems<T: Queryable, F: Filterable>(_ type: T.Type, _ filter: F.Type, with filters: [F] = []) async throws -> [T] {
-        try await get(type.associatedURL, of: [T].self, parameters: filters.queryItems(), decoder: .iso8601())
+    private func getItems<T: Queryable, F: Filterable>(_ type: T.Type, _ filter: F.Type, with filters: [F] = []) async throws -> T {
+        try await get(type.associatedURL, of: T.self, parameters: filters.queryItems(), decoder: .iso8601())
     }
 }
