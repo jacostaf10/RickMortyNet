@@ -75,12 +75,16 @@ public struct ResponseInfo: Codable, Sendable {
     public let count: Int
     public let pages: Int
     public let next: URL?
-    public let previous: URL?
+    public let prev: URL?
 }
 
 public struct CharacterResponse: Queryable {
     public let info: ResponseInfo
     public let results: [Character]
+    
+    enum CodingKeys: String, CodingKey {
+        case info, results
+    }
     
     static public let associatedURL: URL = .characters
 }
@@ -89,12 +93,20 @@ public struct LocationResponse: Queryable {
     public let info: ResponseInfo
     public let results: [Location]
     
+    enum CodingKeys: String, CodingKey {
+        case info, results
+    }
+    
     static public let associatedURL: URL = .locations
 }
 
 public struct EpisodeResponse: Queryable {
     public let info: ResponseInfo
     public let results: [Episode]
+    
+    enum CodingKeys: String, CodingKey {
+        case info, results
+    }
     
     static public let associatedURL: URL = .episodes
 }
