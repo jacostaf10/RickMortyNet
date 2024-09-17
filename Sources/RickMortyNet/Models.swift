@@ -9,17 +9,17 @@ import Foundation
 
 public struct Character: Codable, Identifiable, RawQueryable {
     public let id: Int
-    let name: String
-    let status: Status
-    let species: String
-    let type: String
-    let gender: Gender
-    let origin: Location
-    let location: Location
-    let image: URL
-    let episode: [URL]
-    let url: URL
-    let created: Date
+    public let name: String
+    public let status: Status
+    public let species: String
+    public let type: String
+    public let gender: Gender
+    public let origin: Location
+    public let location: Location
+    public let image: URL
+    public let episode: [URL]
+    public let url: URL
+    public let created: Date
     
     public static let associatedURL: URL = .characters
     
@@ -44,24 +44,24 @@ public struct Character: Codable, Identifiable, RawQueryable {
 
 public struct Location: Codable, Identifiable, RawQueryable {
     public let id: Int
-    let name: String
-    let type: String
-    let dimension: String
-    let residents: [URL]
-    let url: URL
-    let created: Date
+    public let name: String
+    public let type: String
+    public let dimension: String
+    public let residents: [URL]
+    public let url: URL
+    public let created: Date
     
     public static let associatedURL: URL = .locations
 }
 
 public struct Episode: Codable, Identifiable, RawQueryable {
     public let id: Int
-    let name: String
-    let airDate: Date
-    let episode: Int
-    let characters: [URL]
-    let url: URL
-    let created: Date
+    public let name: String
+    public let airDate: Date
+    public let episode: Int
+    public let characters: [URL]
+    public let url: URL
+    public let created: Date
     
     public static let associatedURL: URL = .episodes
     
@@ -72,29 +72,29 @@ public struct Episode: Codable, Identifiable, RawQueryable {
 }
 
 public struct ResponseInfo: Codable, Sendable {
-    let count: Int
-    let pages: Int
-    let next: URL?
-    let previous: URL?
+    public let count: Int
+    public let pages: Int
+    public let next: URL?
+    public let previous: URL?
 }
 
 public struct CharacterResponse: Queryable {
-    let info: ResponseInfo
-    let results: [Character]
+    public let info: ResponseInfo
+    public let results: [Character]
     
     static public let associatedURL: URL = .characters
 }
 
 public struct LocationResponse: Queryable {
-    let info: ResponseInfo
-    let results: [Location]
+    public let info: ResponseInfo
+    public let results: [Location]
     
     static public let associatedURL: URL = .locations
 }
 
 public struct EpisodeResponse: Queryable {
-    let info: ResponseInfo
-    let results: [Episode]
+    public let info: ResponseInfo
+    public let results: [Episode]
     
     static public let associatedURL: URL = .episodes
 }
