@@ -6,6 +6,8 @@ import SwiftNet
 
 
 public final actor RMNetwork {
+    public static let shared = RMNetwork()
+    
     public func getCharacter(_ index: Int) async throws -> Character {
         try await getItem(Character.self, index)
     }
